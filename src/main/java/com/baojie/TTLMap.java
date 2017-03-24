@@ -280,7 +280,7 @@ public class TTLMap {
 				Object object = null;
 				for (int i = 0; i < 99999999; i++) {
 					Thread.yield();
-					LockSupport.parkNanos(TimeUnit.NANOSECONDS.convert(10, TimeUnit.MILLISECONDS));
+					LockSupport.parkNanos(TimeUnit.NANOSECONDS.convert(6, TimeUnit.MICROSECONDS));
 					object = new Object();
 					key.set("" + i);
 					ttlMap.put(key.get(), object, 3000L, TimeUnit.MILLISECONDS);
